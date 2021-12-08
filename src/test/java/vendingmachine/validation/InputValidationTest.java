@@ -1,6 +1,5 @@
 package vendingmachine.validation;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -17,11 +16,19 @@ public class InputValidationTest {
 			.isInstanceOf(IllegalArgumentException.class);
 	}
 
-
 	@DisplayName("입력값은 숫자여야 한다.")
 	@Test
 	void isNumber() {
 		assertThatThrownBy(() -> InputValidation.isNumber("a"))
+			.isInstanceOf(IllegalArgumentException.class);
+	}
+
+	@DisplayName("3개의 문자열이어야 한다.")
+	@ParameterizedTest
+	@ValueSource(strings = {"a", "a,,", "a,b,", "a,b,c,d"})
+	void isCorrectSize(String input) {
+		String[] splitInput = input.split(",");
+		assertThatThrownBy(() -> InputValidation.isCorrectSize(splitInput))
 			.isInstanceOf(IllegalArgumentException.class);
 	}
 
@@ -36,6 +43,4 @@ public class InputValidationTest {
 				.isInstanceOf(IllegalArgumentException.class);
 		}
 	}
-
-
 }
