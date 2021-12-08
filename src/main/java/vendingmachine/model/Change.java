@@ -1,10 +1,8 @@
 package vendingmachine.model;
 
-public class Change {
+import vendingmachine.validation.ChangeValidation;
 
-	private static final int MIN_MONEY = 10;
-	private static final int MULTIPLE_STANDARD = 10;
-
+public class Change extends ChangeValidation {
 	private int money;
 
 	public Change(int money) throws IllegalArgumentException {
@@ -13,15 +11,11 @@ public class Change {
 		this.money = money;
 	}
 
-	private static void validateMultipleOfTen(int money) throws IllegalArgumentException {
-		if (money % MULTIPLE_STANDARD != 0) {
-			throw new IllegalArgumentException();
-		}
+	public int getMoney() {
+		return money;
 	}
 
-	private static void validateMinMoney(int money) throws IllegalArgumentException {
-		if (money < MIN_MONEY) {
-			throw new IllegalArgumentException();
-		}
+	public boolean isEqualTo(int money) {
+		return this.money == money;
 	}
 }
