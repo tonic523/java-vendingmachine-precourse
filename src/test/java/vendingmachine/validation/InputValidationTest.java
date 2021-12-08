@@ -10,6 +10,14 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.assertj.core.api.Assertions.*;
 
 public class InputValidationTest {
+	@DisplayName("문자열이 빈값이면 안된다.")
+	@Test
+	void isEmpty() {
+		assertThatThrownBy(() -> InputValidation.isEmpty(""))
+			.isInstanceOf(IllegalArgumentException.class);
+	}
+
+
 	@DisplayName("입력값은 숫자여야 한다.")
 	@Test
 	void isNumber() {
