@@ -13,4 +13,10 @@ public class InputValidation {
 			throw new IllegalArgumentException();
 		}
 	}
+
+	public static void containsSquareBrackets(String input) throws IllegalArgumentException {
+		if (input.charAt(0) != '[' || input.charAt(input.length() - 1) != ']') {
+			throw new IllegalArgumentException();
+		}
+	}
 }
