@@ -5,3 +5,6 @@
 - 사용자는 상품을 구매할 금액을 입력합니다.
 - 사용자는 자판기의 판매 상품 중 구매할 상품을 선택합니다.
 - 사용자가 더이상 상품을 구매할 수 없을 때 잔돈을 돌려주고 프로젝트는 종료됩니다.
+
+## 🧐 Wiki
+- 📝 [개발 일지](https://github.com/tonic523/java-vendingmachine-precourse/wiki/%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80)
